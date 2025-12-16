@@ -1,21 +1,47 @@
+(function () {
+
 const USER_KEY = "pay54_user";
-const SESSION = "pay54_session";
+const SESSION_KEY = "pay54_session_active";
+const VERIFIED_KEY = "pay54_verified";
 
-document.getElementById("signupForm")?.addEventListener("submit", e => {
-  e.preventDefault();
-  localStorage.setItem(USER_KEY, JSON.stringify({
-    name: name.value,
-    email: email.value,
-    phone: phone.value,
-    pin: pin.value
-  }));
-  location.href = "verify.html";
-});
+function getUser() {
+  try { return JSON.parse(localStorage.getItem(USER_KEY)); }
+  catch { return null; }
+}
 
-document.getElementById("loginForm")?.addEventListener("submit", e => {
+function setSession() {
+  localStorage.setItem(SESSION_KEY, "1");
+}
+
+const form = document.getElementById("loginForm");
+if (!form) return;
+
+form.addEventListener("submit", e => {
   e.preventDefault();
-  const u = JSON.parse(localStorage.getItem(USER_KEY));
-  if (!u || loginPin.value !== u.pin) return alert("Invalid login");
-  localStorage.setItem(SESSION, "1");
+
+  const id = loginId.value.trim();
+  const pin = loginPin.value.trim();
+  const user = getUser();
+
+  if (!user) {
+    alert("No account found. Create one.");
+    location.href = "signup.html";
+    return;
+  }
+
+  if ((id !== user.email && id !== user.phone) || pin !== user.pin) {
+    alert("Incorrect login details");
+    return;
+  }
+
+  if (localStorage.getItem(VERIFIED_KEY) !== "1") {
+    alert("Complete OTP verification");
+    location.href = "verify.html";
+    return;
+  }
+
+  setSession();
   location.href = "dashboard.html";
 });
+
+})();
