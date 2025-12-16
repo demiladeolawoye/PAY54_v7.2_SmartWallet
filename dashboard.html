@@ -1,1 +1,114 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PAY54 • Dashboard</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#020617" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/global.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo/pay54-icon.svg" />
+</head>
+
+<body class="dashboard-body">
+
+  <!-- TOP BAR -->
+  <header class="dash-header">
+    <div class="dash-brand">
+      <div class="logo-pill">P54</div>
+      <div>
+        <strong>PAY54</strong>
+        <div class="dash-sub">One Wallet Everywhere • NG ↔ Global</div>
+      </div>
+    </div>
+
+    <div class="dash-actions">
+      <button id="btnLogout" class="btn-ghost">Logout</button>
+    </div>
+  </header>
+
+  <!-- MAIN DASHBOARD -->
+  <main class="dash-container">
+
+    <!-- BALANCE CARD -->
+    <section class="card balance-card">
+      <h3>Wallet Balance</h3>
+      <div class="balance-amount">
+        ₦<span id="balanceNGN">0.00</span>
+      </div>
+      <div class="balance-sub">
+        USD ≈ $<span id="balanceUSD">0.00</span>
+      </div>
+    </section>
+
+    <!-- QUICK ACTIONS -->
+    <section class="card quick-actions">
+      <h3>Quick Actions</h3>
+
+      <div class="actions-grid">
+        <button data-action="send">Send</button>
+        <button data-action="receive">Receive</button>
+        <button data-action="add">Add Money</button>
+        <button data-action="withdraw">Withdraw</button>
+        <button data-action="fx">FX</button>
+        <button data-action="receipt">Receipt</button>
+      </div>
+    </section>
+
+    <!-- FX MOCK -->
+    <section class="card fx-card">
+      <h3>FX Mock (Demo)</h3>
+
+      <div class="fx-row">
+        <input id="fxAmount" type="number" placeholder="Amount NGN" />
+        <select id="fxTarget">
+          <option value="USD">USD</option>
+          <option value="GBP">GBP</option>
+          <option value="EUR">EUR</option>
+        </select>
+        <button id="btnFxConvert" class="btn-primary">Convert</button>
+      </div>
+
+      <div class="fx-result">
+        You receive: <strong id="fxResult">—</strong>
+      </div>
+    </section>
+
+    <!-- TRANSACTIONS -->
+    <section class="card tx-card">
+      <h3>Recent Transactions</h3>
+
+      <ul id="txList" class="tx-list">
+        <li class="muted">No transactions yet</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="dash-footer">
+    PAY54 DEMO VERSION — Wallet UI simulation only.  
+    No real payments or sensitive data processed.
+  </footer>
+
+  <!-- ================== SCRIPTS ================== -->
+
+  <!-- CORE -->
+  <script src="assets/js/core/state.js"></script>
+  <script src="assets/js/core/session.js"></script>
+
+  <!-- DASHBOARD LOGIC -->
+  <script src="assets/js/dashboard/wallet.js"></script>
+  <script src="assets/js/dashboard/fx.js"></script>
+  <script src="assets/js/dashboard/receipt.js"></script>
+  <script src="assets/js/dashboard/theme.js"></script>
+  <script src="assets/js/dashboard/dashboardUI.js"></script>
+
+</body>
+</html>
