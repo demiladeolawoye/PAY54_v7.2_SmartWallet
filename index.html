@@ -2,40 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>PAY54 • Smart Wallet</title>
-
+  <title>PAY54 • Sign in</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#020617" />
-
-  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/global.css" />
   <link rel="stylesheet" href="assets/css/auth.css" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/img/logo/pay54-icon.svg" />
 </head>
-
 <body class="auth-body">
 
-  <!-- SIMPLE LOADING FALLBACK -->
-  <div style="padding:40px;color:#fff;font-family:sans-serif">
-    Loading PAY54…
-  </div>
+<header class="auth-top">
+  <img src="assets/img/pay54-logo-light.svg" class="logo-pill" />
+  <p>PAY54 One Wallet Everywhere • NG ↔ Global</p>
+</header>
 
-  <!-- CORE -->
-  <script src="assets/js/core/session.js"></script>
+<main class="auth-container">
+  <section class="auth-card">
+    <h1>Sign in to PAY54</h1>
 
-  <script>
-    // 🔐 ENTRY ROUTER
-    const sessionActive = localStorage.getItem("pay54_session_active") === "1";
+    <form id="loginForm">
+      <label>Email or phone</label>
+      <input id="loginId" required />
 
-    if (sessionActive) {
-      window.location.replace("dashboard.html");
-    } else {
-      window.location.replace("login.html");
-    }
-  </script>
+      <label>Wallet PIN (4 digits)</label>
+      <input id="loginPin" type="password" maxlength="4" required />
 
+      <button type="submit">Sign in to PAY54</button>
+    </form>
+
+    <p>
+      <a href="reset-pin.html">Forgot PIN?</a> ·
+      <a href="signup.html">Create account</a>
+    </p>
+  </section>
+</main>
+
+<script src="assets/js/auth/auth.js"></script>
 </body>
 </html>
-
