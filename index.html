@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PAY54 • Smart Wallet</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#020617" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/global.css" />
+  <link rel="stylesheet" href="assets/css/auth.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo/pay54-icon.svg" />
+</head>
+
+<body class="auth-body">
+
+  <!-- SIMPLE LOADING FALLBACK -->
+  <div style="padding:40px;color:#fff;font-family:sans-serif">
+    Loading PAY54…
+  </div>
+
+  <!-- CORE -->
+  <script src="assets/js/core/session.js"></script>
+
+  <script>
+    // 🔐 ENTRY ROUTER
+    const sessionActive = localStorage.getItem("pay54_session_active") === "1";
+
+    if (sessionActive) {
+      window.location.replace("dashboard.html");
+    } else {
+      window.location.replace("login.html");
+    }
+  </script>
+
+</body>
+</html>
 
