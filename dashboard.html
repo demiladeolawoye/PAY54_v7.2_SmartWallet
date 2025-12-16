@@ -1,22 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>PAY54 Dashboard</title>
+  <meta charset="UTF-8" />
+  <title>PAY54 • Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <link rel="stylesheet" href="assets/css/global.css" />
   <link rel="stylesheet" href="assets/css/dashboard.css" />
 </head>
-<body>
 
-<div id="app">
-  <h1>Welcome to PAY54</h1>
-  <button id="logout">Logout</button>
-</div>
+<body class="dashboard-body">
 
-<script src="assets/js/dashboard/dashboardUI.js"></script>
-<script src="assets/js/dashboard/wallet.js"></script>
-<script src="assets/js/dashboard/fx.js"></script>
-<script src="assets/js/dashboard/receipt.js"></script>
-<script src="assets/js/dashboard/theme.js"></script>
+<header class="app-header">
+  <div class="app-brand">
+    <strong>PAY54</strong>
+  </div>
+  <button id="logoutBtn">Logout</button>
+</header>
+
+<main class="dashboard-main">
+
+  <section class="card">
+    <h3>Total Balance</h3>
+    <div class="balance-amount" id="walletBalance">₦0.00</div>
+  </section>
+
+  <section class="card">
+    <h3>Money Moves</h3>
+    <button id="btnAdd">Add Money</button>
+    <button id="btnSend">Send</button>
+    <button id="btnWithdraw">Withdraw</button>
+  </section>
+
+</main>
+
 <script src="assets/js/core/session.js"></script>
+<script src="assets/js/dashboard/wallet.js"></script>
 </body>
 </html>
